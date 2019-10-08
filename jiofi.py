@@ -44,7 +44,8 @@ def warn():
     if remaining < 50:
         winsound.Beep(300,1000)
     return
-
+    if remaining ==100:
+        winsound.Beep(300,1000)
         
 def help():
     print("use status function without any args to know status")
