@@ -3,6 +3,7 @@ import requests
 from bs4 import BeautifulSoup
 import winsound
 import ctypes 
+import time
 
 def scan():
     try:
@@ -13,11 +14,12 @@ def scan():
         jiofi=str(jiofi[0])
         return jiofi
     except:
+        winsound.Beep(100,1000)
         ctypes.windll.user32.MessageBoxW(0, "Not connected to jiofi ", "Program Exitting..", 1)
-        winsound.Beep(300,1000)
         exit()
 
 def status():
+    jiofi=scan()
     for k in range(11):
         s=jiofi.split('\n')[k]
         s=s.split()
@@ -27,6 +29,7 @@ def status():
         return
 
 def battery():
+    jiofi=scan()
     s=jiofi.split('\n')[1]
     s=s.split()
     tag=s[1]
@@ -37,13 +40,15 @@ def battery():
     return
 
 def fullalert(): 
-    ctypes.windll.user32.MessageBoxW(0, "Your JioFi router is fully charged ", "Unplug charger", 1)
     winsound.Beep(100,1000)
+    ctypes.windll.user32.MessageBoxW(0, "Your JioFi router is fully charged ", "Unplug charger", 1)
+    #winsound.Beep(100,1000)
     exit()
     
-def lowalert():   
+def lowalert():  
+    winsound.Beep(100,1000) 
     ctypes.windll.user32.MessageBoxW(0, "Your JioFi charge going low ", "plug charger", 1)
-    winsound.Beep(100,1000)
+    #winsound.Beep(100,1000)
     exit()
 
 def warn():
@@ -54,6 +59,7 @@ def warn():
     value=s[-1]
     percent=value[s[-1].find('=')+2:-2]
     remaining=int(percent[0:-1])
+    print(remaining)
     if remaining < 20:
         lowalert()
     if remaining == 100:
@@ -70,6 +76,7 @@ def help():
     print("use alert function without any args to get alert is battery goes below 20%")
     
 def alert():
+        time.sleep(10)
         warn()
         
 alert()
