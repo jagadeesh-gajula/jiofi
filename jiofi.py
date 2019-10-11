@@ -76,7 +76,7 @@ def help():
     print("use alert function without any args to get alert is battery goes below 20%")
     
 def alert():
-        time.sleep(10)
+        time.sleep(60)
         warn()
         
 alert()
