@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[16]:
+# In[30]:
 
 
 import urllib.request
@@ -77,10 +77,10 @@ while True:
             status = update()
             level = status['batterylevel'] # Alert user to connect or disconnect charger to JIOFI
             if int(level[:-1]) < 30 and status['batterystatus']=='Discharging':
-                windsound.Beep(500,1000)
+                winsound.Beep(500,1000)
                 sg.Popup("Low battery")
-            if int(level[:-1]) > 95 and status['batterystatus']=='Discharging':
-                windsound.Beep(500,1000)
+            if status['batterystatus']=='Fully Charged':
+                winsound.Beep(500,1000)
                 sg.Popup("Battery level high")
             bat_status = 'Battery-Status:'+status['batterystatus']
             bat_status = bat_status +'\n'+'Battery-level:'+status['batterylevel']
@@ -95,4 +95,10 @@ while True:
             pass
         counter += 1
 window.close()
+
+
+# In[ ]:
+
+
+
 
