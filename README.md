@@ -1,4 +1,4 @@
-# jiofi Version 0.1
+# Smarter jiofi Version 0.1
 Gui application will show your jiofi status and Alert user to plug and unplug charger at low and high battery.
 
 Works with windows machine and you should be connected to JIOFI ( tested with JMR541)
@@ -10,7 +10,8 @@ Step 1: run "pip install -r requirements.txt" from current directory
 
 Step 2: run "python Smart jiofi.py" in CMD in Current directory
 
-Optional
+Optional: 
+
 	Use pyinstaller to convert this program into EXE file. 
 	
 
