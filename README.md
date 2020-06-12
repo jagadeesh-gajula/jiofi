@@ -3,10 +3,13 @@ Gui application will show your jiofi status and Alert user to plug and unplug ch
 
 Works with windows machine and you should be connected to JIOFI ( tested with JMR541)
 
+
+
 Instructions:
 Step 1: 
 
-
+	Unzip Executable file.zip and run directly
+	or 
 	run "pip install -r requirements.txt" from current directory
 	(optional step) run "pip install -r myenv.txt" to replicate my environment
 
